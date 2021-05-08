@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+    <title>Mute Computers</title>
+
+    <!-- Bootstrap 5.0-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+
+    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+    <link th:href="@{/css/radio-button.css}" rel="stylesheet">
+    <link th:href="@{/css/main-content.css}" rel="stylesheet">
+</head>
+<body>
+<nav id="nav-main" class="my-navbar">
+    <ul class="my-navbar-nav">
+        <li class="my-nav-item">
+            <a href="#cpu" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/cpu.svg"/>
+                <span class="link-text">CPU</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#gpu" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/gpu.svg"/>
+                <span class="link-text">GPU</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#motherboard" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/motherboard.svg"/>
+                <span class="link-text">Motherboard</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/ram.svg"/>
+                <span class="link-text">RAM</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/power-supply.svg"/>
+                <span class="link-text">Power</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/cooler.svg"/>
+                <span class="link-text">Cooler</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/ssd.svg"/>
+                <span class="link-text">SSD</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/hdd.svg"/>
+                <span class="link-text">HDD</span>
+            </a>
+        </li>
+        <li class="my-nav-item">
+            <a href="#" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/case.svg"/>
+                <span class="link-text">Case</span>
+            </a>
+        </li>
+
+    </ul>
+</nav>
+
+<main>
+    <div id="cpu" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/cpu.svg"/>
+            <span class="fs-4">CPU</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-cpu-tab" aria-controls="all-cpu" data-bs-target="#all-cpu" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="intel-cpu-tab" aria-controls="intel-cpu" data-bs-target="#intel-cpu" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="amd-cpu-tab" aria-controls="amd-cpu" data-bs-target="#amd-cpu" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">AMD
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-cpu" aria-labelledby="all-cpu-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu">
+                            <div class="radio__radio"></div>
+                            <span>Core i3-9100</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu">
+                            <div class="radio__radio"></div>
+                            <span>Core i5-9400</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu"/>
+                            <div class="radio__radio"></div>
+                            <span>Core i5-9400K</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu"/>
+                            <div class="radio__radio"></div>
+                            <span>Ryzen 5 3500X</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu"/>
+                            <div class="radio__radio"></div>
+                            <span>Ryzen 7 5800X</span>
+                        </label>
+                    </div>
+                </div>
+                <div id="intel-cpu" aria-labelledby="intel-cpu-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu">
+                            <div class="radio__radio"></div>
+                            <span>Core i3-9100</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu">
+                            <div class="radio__radio"></div>
+                            <span>Core i5-9400</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu"/>
+                            <div class="radio__radio"></div>
+                            <span>Core i5-9400K</span>
+                        </label>
+                    </div>
+                </div>
+                <div id="amd-cpu" aria-labelledby="amd-cpu-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu"/>
+                            <div class="radio__radio"></div>
+                            <span>Ryzen 5 3500X</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="cpu"/>
+                            <div class="radio__radio"></div>
+                            <span>Ryzen 7 5800X</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gpu" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/gpu.svg"/>
+            <span class="fs-4">GPU</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-gpu-tab" aria-controls="all-gpu" data-bs-target="#all-gpu" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="nvidia-gpu-tab" aria-controls="nvidia-gpu" data-bs-target="#nvidia-gpu"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Nvidia
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="amd-gpu-tab" aria-controls="amd-gpu" data-bs-target="#amd-gpu" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">AMD
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-gpu" aria-labelledby="all-gpu-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="gpu">
+                            <div class="radio__radio"></div>
+                            <span>RTX 3090</span>
+                        </label>
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="gpu">
+                            <div class="radio__radio"></div>
+                            <span>Radeon 6800XT</span>
+                        </label>
+                    </div>
+                </div>
+                <div id="nvidia-gpu" aria-labelledby="nvidia-gpu-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="gpu">
+                            <div class="radio__radio"></div>
+                            <span>RTX 3090</span>
+                        </label>
+                    </div>
+                </div>
+                <div id="amd-gpu" aria-labelledby="amd-gpu-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <label class="radio">
+                            <input class="radio__input" type="radio" name="gpu">
+                            <div class="radio__radio"></div>
+                            <span>Radeon 6800XT</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="motherboard" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/motherboard.svg"/>
+            <span class="fs-4">Motherboard</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-chipsets-tab" aria-controls="all-chipsets"
+                            data-bs-target="#all-chipsets" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <!--Intel's chipsets-->
+                <li class="nav-item" role="presentation">
+                    <button id="Z590-tab" aria-controls="Z590" data-bs-target="#Z590"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel Z590
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="H570-tab" aria-controls="H570" data-bs-target="#H570" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel H570
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="B560-tab" aria-controls="B560" data-bs-target="#B560" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel B560
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="Z490-tab" aria-controls="Z490" data-bs-target="#Z490" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel Z490
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="H470-tab" aria-controls="H470" data-bs-target="#H470" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel H470
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="B460-tab" aria-controls="B460" data-bs-target="#B460" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Intel B460
+                    </button>
+                </li>
+                <!--AMD's chipsets-->
+                <li class="nav-item" role="presentation">
+                    <button id="X570-tab" aria-controls="X570" data-bs-target="#X570" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">AMD X570
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="B550-tab" aria-controls="B550" data-bs-target="#B550" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">AMD B550
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="X470-tab" aria-controls="X470" data-bs-target="#X470" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">AMD X470
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="B450-tab" aria-controls="B450" data-bs-target="#B450" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">AMD B450
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-chipsets" aria-labelledby="all-chipsets-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="Z590" aria-labelledby="Z590-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="H570" aria-labelledby="H570-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="B560" aria-labelledby="B560-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="Z490" aria-labelledby="Z490-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="H470" aria-labelledby="H470-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="B460" aria-labelledby="B460-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="X570" aria-labelledby="X570-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="B550" aria-labelledby="B550-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="X470" aria-labelledby="X470-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+                <div id="B450" aria-labelledby="B450-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+<!--JQuery and Bootstrap 5.0-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script th:src="@{/js/bootstrap.bundle.js}"></script>
+
+<script>
+    // Code for changing active link on clicking
+    let buttons = $("#nav-main .my-navbar-nav .my-nav-link");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+            let current = document.getElementsByClassName("active");
+
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" active", "");
+            }
+
+            this.className += " active";
+        });
+    }
+
+    // Code for changing active link on Scrolling
+    $(window).scroll(function () {
+        let distance = $(window).scrollTop();
+        $('.page-section').each(function (i) {
+
+            if ($(this).position().top
+                <= distance + 250) {
+
+                $('.my-navbar-nav a.active')
+                    .removeClass('active');
+
+                $('.my-navbar-nav a').eq(i)
+                    .addClass('active');
+            }
+        });
+    }).scroll();
+
+    // For smooth scrolling on clicking
+    $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $("a").on('click', function (event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                let hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 400, function () {
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+</html>

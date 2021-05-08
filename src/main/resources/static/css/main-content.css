@@ -1,0 +1,33 @@
+#cpu,
+#gpu,
+#motherboard {
+    /*height: 100vh;*/
+    /*width: 100%;*/
+    margin: 2rem 5rem 5rem 5rem;
+}
+
+#cpu {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*background-color: grey;*/
+    /*justify-content: space-evenly;*/
+}
+
+#gpu {
+    /*background-color: darkgreen;*/
+}
+
+#motherboard {
+    /*background-color: brown;*/
+}
+
+.first-inner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.second-inner{
+    display: flex;
+    flex-direction: column;
+}
