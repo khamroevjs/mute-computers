@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface  CPURepository : JpaRepository<CPU, Int> {
+
+    fun findAllByManufacturer(manufacturer: String) : List<CPU>
 }
