@@ -1,0 +1,29 @@
+:root {
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+main {
+    margin-right: 20rem;
+}
+
+.right-navbar {
+    z-index: 1;
+    width: 20rem;
+    height: 76vh;
+    position: fixed;
+    top: 12vh;
+    right: 0;
+    bottom: 12vh;
+    background-color: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.filter-black {
+    /*filter: invert(0) sepia(0) saturate(0) hue-rotate(0) brightness(0) contrast(1);*/
+}

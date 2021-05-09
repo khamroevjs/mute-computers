@@ -8,12 +8,13 @@
     <!-- Bootstrap 5.0-->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
 
-    <link th:href="@{/css/navbar.css}" rel="stylesheet">
+    <link th:href="@{/css/left-navbar.css}" rel="stylesheet">
+    <link th:href="@{/css/right-navbar.css}" rel="stylesheet">
     <link th:href="@{/css/radio-button.css}" rel="stylesheet">
     <link th:href="@{/css/main-content.css}" rel="stylesheet">
 </head>
 <body>
-<nav id="nav-main" class="my-navbar">
+<nav class="my-navbar">
     <ul class="my-navbar-nav">
         <li class="my-nav-item">
             <a href="#cpu" class="my-nav-link">
@@ -102,31 +103,40 @@
                 <div id="all-cpu" aria-labelledby="all-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
-                        <label th:each="cpu : ${allCpu}" class="radio">
-                            <input class="radio__input" type="radio" name="cpu">
-                            <div class="radio__radio"></div>
-                            <span th:text="${cpu.name}"></span>
-                        </label>
+                        <div th:each="cpu : ${allCpu}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="cpu">
+                                <div class="radio__radio"></div>
+                                <span th:text="${cpu.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="intel-cpu" aria-labelledby="intel-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="cpu : ${intelCpu}" class="radio">
-                            <input class="radio__input" type="radio" name="cpu">
-                            <div class="radio__radio"></div>
-                            <span th:text="${cpu.name}"></span>
-                        </label>
+                        <div th:each="cpu : ${intelCpu}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="cpu">
+                                <div class="radio__radio"></div>
+                                <span th:text="${cpu.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="amd-cpu" aria-labelledby="amd-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="cpu : ${amdCpu}" class="radio">
-                            <input class="radio__input" type="radio" name="cpu"/>
-                            <div class="radio__radio"></div>
-                            <span th:text="${cpu.name}"></span>
-                        </label>
+                        <div th:each="cpu : ${amdCpu}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="cpu"/>
+                                <div class="radio__radio"></div>
+                                <span th:text="${cpu.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -161,31 +171,40 @@
                 <div id="all-gpu" aria-labelledby="all-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${allGpu}" class="radio">
-                            <input class="radio__input" type="radio" name="gpu">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${allGpu}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="gpu">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="nvidia-gpu" aria-labelledby="nvidia-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${nvidiaGpu}" class="radio">
-                            <input class="radio__input" type="radio" name="gpu">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}">RTX 3090</span>
-                        </label>
+                        <div th:each="item : ${nvidiaGpu}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="gpu">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}">RTX 3090</span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="amd-gpu" aria-labelledby="amd-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${amdGpu}" class="radio">
-                            <input class="radio__input" type="radio" name="gpu">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${amdGpu}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="gpu">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -262,122 +281,174 @@
                 <div id="all-chipsets" aria-labelledby="all-chipsets-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${allMotherboards}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${allMotherboards}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="Z590" aria-labelledby="Z590-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${z590}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${z590}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="H570" aria-labelledby="H570-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${h570}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${h570}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="B560" aria-labelledby="B560-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${b560}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${b560}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="Z490" aria-labelledby="Z490-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${z490}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${z490}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="H470" aria-labelledby="H470-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${h470}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${h470}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="B460" aria-labelledby="B460-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${b460}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${b460}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="X570" aria-labelledby="X570-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${x570}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${x570}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="B550" aria-labelledby="B550-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${b550}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${b550}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="X470" aria-labelledby="X470-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${x470}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${x470}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
                 <div id="B450" aria-labelledby="B450-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
-                        <label th:each="item : ${b450}" class="radio">
-                            <input class="radio__input" type="radio" name="motherboard">
-                            <div class="radio__radio"></div>
-                            <span th:text="${item.name}"></span>
-                        </label>
+                        <div th:each="item : ${b450}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="motherboard">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+
+<nav class="right-navbar">
+    <img class="w-75 filter-white" src="/svg/logo.svg" alt="#">
+    <img class="filter-black" src="/svg/case-2.svg" alt="#">
+    <div class="d-flex flex-column align-items-center w-75 justify-content-evenly">
+        <button class="btn btn-success shadow-none w-100">Check</button>
+        <div class="mt-2 d-flex justify-content-evenly shadow-none w-100">
+            <button onclick="resetSelections()" class="me-1 btn btn-secondary shadow-none w-100" type="button">Reset
+            </button>
+            <button class="ms-1 btn btn-secondary shadow-none w-100">Export</button>
+        </div>
+    </div>
+</nav>
 </body>
 
 <!--JQuery and Bootstrap 5.0-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script th:src="@{/js/bootstrap.bundle.js}"></script>
+<script>
+    function resetSelections() {
+        const radioButtons = document.querySelectorAll("input[type=radio]");
+        radioButtons.forEach((radioButton) => radioButton.checked = false);
+    }
+</script>
 
 <script>
     // Code for changing active link on clicking
