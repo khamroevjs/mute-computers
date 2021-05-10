@@ -26,6 +26,7 @@ class MainController @Autowired constructor(
 
     @GetMapping("/info")
     fun info(model: Model): String {
+
         model.addAttribute("allCpu", cpuRepository.findAll())
         model.addAttribute("intelCpu", cpuRepository.findAllByManufacturer("Intel"))
         model.addAttribute("amdCpu", cpuRepository.findAllByManufacturer("AMD"))

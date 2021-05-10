@@ -12,6 +12,7 @@
     <link th:href="@{/css/right-navbar.css}" rel="stylesheet">
     <link th:href="@{/css/radio-button.css}" rel="stylesheet">
     <link th:href="@{/css/main-content.css}" rel="stylesheet">
+
 </head>
 <body>
 <nav class="my-navbar">
@@ -109,7 +110,16 @@
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
                             </label>
-                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                            <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                            '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
+                            '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
+                            '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
+                            '${cpu.L2Cache}', '${cpu.L3Cache}', '${cpu.unlockedMultiplier}', '${cpu.memoryType}',
+                            '${cpu.memoryBandwidth}', '${cpu.memoryChannels}', '${cpu.maxMemorySize}', '${cpu.ECCMemory}',
+                            '${cpu.integratedGraphics}','${cpu.PCIExpressRevision}','${cpu.PCIExpressLanes}')|"
+                               data-bs-toggle="modal"
+                               data-bs-target="#info-modal">
+                                <img class="info-button" src="/svg/info.svg" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +132,17 @@
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
                             </label>
-                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+
+                            <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                            '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
+                            '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
+                            '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
+                            '${cpu.L2Cache}', '${cpu.L3Cache}', '${cpu.unlockedMultiplier}', '${cpu.memoryType}',
+                            '${cpu.memoryBandwidth}', '${cpu.memoryChannels}', '${cpu.maxMemorySize}', '${cpu.ECCMemory}',
+                            '${cpu.integratedGraphics}','${cpu.PCIExpressRevision}','${cpu.PCIExpressLanes}')|"
+                               data-bs-toggle="modal"
+                               data-bs-target="#info-modal">
+                                <img class="info-button" src="/svg/info.svg" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +155,16 @@
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
                             </label>
-                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                            <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                            '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
+                            '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
+                            '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
+                            '${cpu.L2Cache}', '${cpu.L3Cache}', '${cpu.unlockedMultiplier}', '${cpu.memoryType}',
+                            '${cpu.memoryBandwidth}', '${cpu.memoryChannels}', '${cpu.maxMemorySize}', '${cpu.ECCMemory}',
+                            '${cpu.integratedGraphics}','${cpu.PCIExpressRevision}','${cpu.PCIExpressLanes}')|"
+                               data-bs-toggle="modal"
+                               data-bs-target="#info-modal">
+                                <img class="info-button" src="/svg/info.svg" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -424,6 +453,16 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="info-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="modal_body" class="modal-body d-flex flex-column">
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 <nav class="right-navbar">
@@ -443,6 +482,8 @@
 <!--JQuery and Bootstrap 5.0-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script th:src="@{/js/bootstrap.bundle.js}"></script>
+<script th:src="@{/js/info-popup.js}"></script>
+
 <script>
     function resetSelections() {
         const radioButtons = document.querySelectorAll("input[type=radio]");
