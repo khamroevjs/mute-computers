@@ -124,7 +124,7 @@ main {
 }
 
 /* Small screen */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .my-navbar {
         bottom: 0;
         width: 100vw;
