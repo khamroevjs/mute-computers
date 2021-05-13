@@ -1,7 +1,7 @@
 function popupCpu(manufacturer, name, releaseYear, fabricationProcess, TDP, socket, microarchitecture, codeName, cores,
-               threads, baseFrequency, turboFrequency, L1CacheInstruction, L1CacheDate, L2Cache, L3Cache,
-               unlockedMultiplier, memoryType, memoryBandwidth, memoryChannels, maxMemorySize, ECCMemory,
-               integratedGraphics, PCIExpressRevision, PCIExpressLanes) {
+                  threads, baseFrequency, turboFrequency, L1CacheInstruction, L1CacheDate, L2Cache, L3Cache,
+                  unlockedMultiplier, memoryType, memoryBandwidth, memoryChannels, maxMemorySize, ECCMemory,
+                  integratedGraphics, PCIExpressRevision, PCIExpressLanes) {
 
     const element = document.getElementById('modal_body')
     element.innerHTML = ''
@@ -177,6 +177,178 @@ function popupCpu(manufacturer, name, releaseYear, fabricationProcess, TDP, sock
     span1 = createSpan('PCI-Express Lanes')
     divRow.append(span1)
     span2 = createSpan(PCIExpressLanes)
+    divRow.append(span2)
+    div.append(divRow)
+}
+
+function popupGpu(
+    manufacturer,
+    name,
+    releaseYear,
+    microarchitecture,
+    fabricationProcess,
+    TDP,
+    interfacePort,
+    multiGPUSupport,
+    baseClock,
+    boostClock,
+    shadingUnits,
+    L1Cache,
+    L2Cache,
+    L3Cache,
+    memoryType,
+    memorySize,
+    memoryClock,
+    memoryClockEffective,
+    memoryBus,
+    memoryBandwidth) {
+
+    const element = document.getElementById('modal_body')
+    element.innerHTML = ''
+
+    const button = createButton()
+    element.append(button)
+
+    const img = createImg('gpu')
+    element.append(img)
+
+    const title = createTitle(manufacturer, name)
+    element.append(title)
+
+    const div = createDiv()
+    element.append(div)
+
+    // Main content
+    let divRow = createDivRow()
+    let span1 = createSpan('Release Year')
+    divRow.append(span1)
+    let span2 = createSpan(releaseYear)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Fab. Process')
+    divRow.append(span1)
+    span2 = createSpan(fabricationProcess + ' nm')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('TDP')
+    divRow.append(span1)
+    span2 = createSpan(TDP + ' W')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Interface')
+    divRow.append(span1)
+    span2 = createSpan(interfacePort)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Microarchitecture')
+    divRow.append(span1)
+    span2 = createSpan(microarchitecture)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Multi-GPU Support')
+    divRow.append(span1)
+    span2 = createSpan(multiGPUSupport)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Base Clock')
+    divRow.append(span1)
+    span2 = createSpan(baseClock + ' MHz')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Boost Clock')
+    divRow.append(span1)
+    span2 = createSpan(boostClock + ' MHz')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Shading Units')
+    divRow.append(span1)
+    span2 = createSpan(shadingUnits)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('L1 Cache')
+    divRow.append(span1)
+    span2 = createSpan(L1Cache)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('L2 Cache')
+    divRow.append(span1)
+    span2 = createSpan(L2Cache)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('L3 Cache')
+    divRow.append(span1)
+    span2 = createSpan(L3Cache)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Type')
+    divRow.append(span1)
+    span2 = createSpan(memoryType)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Type')
+    divRow.append(span1)
+    span2 = createSpan(memoryType)
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Size')
+    divRow.append(span1)
+    span2 = createSpan(memorySize + ' GB')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Clock')
+    divRow.append(span1)
+    span2 = createSpan(memoryClock + ' MHz')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Clock (Effective)')
+    divRow.append(span1)
+    span2 = createSpan(memoryClockEffective + ' MHz')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Bus')
+    divRow.append(span1)
+    span2 = createSpan(memoryBus + ' bits')
+    divRow.append(span2)
+    div.append(divRow)
+
+    divRow = createDivRow()
+    span1 = createSpan('Memory Bandwidth')
+    divRow.append(span1)
+    span2 = createSpan(memoryBandwidth + ' GB/s')
     divRow.append(span2)
     div.append(divRow)
 }

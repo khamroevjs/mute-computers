@@ -3,7 +3,6 @@ package com.mutecomputers
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
-import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RestController
 import springfox.documentation.builders.ApiInfoBuilder
 import springfox.documentation.builders.PathSelectors
@@ -19,7 +18,7 @@ class Application {
     fun docs(): Docket {
         return Docket(DocumentationType.SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.withClassAnnotation(Controller::class.java))
+            .apis(RequestHandlerSelectors.withClassAnnotation(RestController::class.java))
             .paths(PathSelectors.any())
             .build()
             .apiInfo(apiInfo())

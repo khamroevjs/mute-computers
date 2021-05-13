@@ -36,37 +36,37 @@
             </a>
         </li>
         <li class="my-nav-item">
-            <a href="#" class="my-nav-link">
+            <a href="#ram" class="my-nav-link">
                 <img class="filter-white transition" alt="#" src="/svg/ram.svg"/>
                 <span class="link-text">RAM</span>
             </a>
         </li>
         <li class="my-nav-item">
-            <a href="#" class="my-nav-link">
-                <img class="filter-white transition" alt="#" src="/svg/power-supply.svg"/>
+            <a href="#power" class="my-nav-link">
+                <img class="filter-white transition" alt="#" src="/svg/power.svg"/>
                 <span class="link-text">Power</span>
             </a>
         </li>
         <li class="my-nav-item">
-            <a href="#" class="my-nav-link">
+            <a href="#cooler" class="my-nav-link">
                 <img class="filter-white transition" alt="#" src="/svg/cooler.svg"/>
                 <span class="link-text">Cooler</span>
             </a>
         </li>
         <li class="my-nav-item">
-            <a href="#" class="my-nav-link">
+            <a href="#ssd" class="my-nav-link">
                 <img class="filter-white transition" alt="#" src="/svg/ssd.svg"/>
                 <span class="link-text">SSD</span>
             </a>
         </li>
         <li class="my-nav-item">
-            <a href="#" class="my-nav-link">
+            <a href="#hdd" class="my-nav-link">
                 <img class="filter-white transition" alt="#" src="/svg/hdd.svg"/>
                 <span class="link-text">HDD</span>
             </a>
         </li>
         <li class="my-nav-item">
-            <a href="#" class="my-nav-link">
+            <a href="#case" class="my-nav-link">
                 <img class="filter-white transition" alt="#" src="/svg/case.svg"/>
                 <span class="link-text">Case</span>
             </a>
@@ -104,9 +104,10 @@
                 <div id="all-cpu" aria-labelledby="all-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
-                        <div th:each="cpu : ${allCpu}" class="d-flex">
+                        <div th:each="cpu : ${allCpu}" class="d-flex ">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="cpu">
+                                <input th:value="${cpu.manufacturer + '|' + cpu.name}" class="radio__input" type="radio"
+                                       name="cpu">
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
                             </label>
@@ -206,7 +207,13 @@
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
-                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                            <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
+                            '${item.microarchitecture}', '${item.fabricationProcess}', '${item.TDP}', '${item.interfacePort}',
+                            '${item.multiGPUSupport}', '${item.baseClock}', '${item.boostClock}', '${item.shadingUnits}',
+                            '${item.L1Cache}', '${item.L2Cache}', '${item.L3Cache}', '${item.memoryType}', '${item.memorySize}',
+                            '${item.memoryClock}', '${item.memoryClockEffective}', '${item.memoryBus}','${item.memoryBandwidth}')|"
+                               data-bs-toggle="modal"
+                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -217,9 +224,15 @@
                             <label class="radio">
                                 <input class="radio__input" type="radio" name="gpu">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}">RTX 3090</span>
+                                <span th:text="${item.name}"></span>
                             </label>
-                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                            <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
+                            '${item.microarchitecture}', '${item.fabricationProcess}', '${item.TDP}', '${item.interfacePort}',
+                            '${item.multiGPUSupport}', '${item.baseClock}', '${item.boostClock}', '${item.shadingUnits}',
+                            '${item.L1Cache}', '${item.L2Cache}', '${item.L3Cache}', '${item.memoryType}', '${item.memorySize}',
+                            '${item.memoryClock}', '${item.memoryClockEffective}', '${item.memoryBus}','${item.memoryBandwidth}')|"
+                               data-bs-toggle="modal"
+                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -232,7 +245,13 @@
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
-                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                            <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
+                            '${item.microarchitecture}', '${item.fabricationProcess}', '${item.TDP}', '${item.interfacePort}',
+                            '${item.multiGPUSupport}', '${item.baseClock}', '${item.boostClock}', '${item.shadingUnits}',
+                            '${item.L1Cache}', '${item.L2Cache}', '${item.L3Cache}', '${item.memoryType}', '${item.memorySize}',
+                            '${item.memoryClock}', '${item.memoryClockEffective}', '${item.memoryBus}','${item.memoryBandwidth}')|"
+                               data-bs-toggle="modal"
+                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -454,11 +473,529 @@
         </div>
     </div>
 
+    <div id="ram" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/ram.svg"/>
+            <span class="fs-4">RAM</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-ram-tab" aria-controls="all-ram" data-bs-target="#all-ram" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="hyperx-ram-tab" aria-controls="hyperx-ram" data-bs-target="#hyperx-ram"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">HyperX
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="corsair-ram-tab" aria-controls="corsair-ram" data-bs-target="#corsair-ram"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Corsair
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-ram" aria-labelledby="all-ram-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${allRam}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="ram">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name + ' ' + item.capacity + 'GB' + ' ' + item.speed + 'MHz'}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="hyperx-ram" aria-labelledby="hyperx-ram-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${hyperxRam}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="ram">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name + ' ' + item.capacity + 'GB' + ' ' + item.speed + 'MHz'}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="corsair-ram" aria-labelledby="corsair-ram-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${corsairRam}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="ram">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name + ' ' + item.capacity + 'GB' + ' ' + item.speed + 'MHz'}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="power" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/power.svg"/>
+            <span class="fs-4">Power</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-power-tab" aria-controls="all-power" data-bs-target="#all-power"
+                            aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="bequiet-power-tab" aria-controls="bequiet-power" data-bs-target="#bequiet-power"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">be quite!
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="master-power-tab" aria-controls="master-power" data-bs-target="#master-power"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Cooler Master
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-power" aria-labelledby="all-power-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${allPower}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="power">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="bequiet-power" aria-labelledby="bequiet-power-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${bequietPower}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="power">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="master-power" aria-labelledby="master-power-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${masterPower}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="power">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cooler" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/cooler.svg"/>
+            <span class="fs-4">Cooler</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-cooler-tab" aria-controls="all-cooler" data-bs-target="#all-cooler"
+                            aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="air-cooler-tab" aria-controls="air-cooler" data-bs-target="#air-cooler"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Air
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="liquid-cooler-tab" aria-controls="liquid-cooler" data-bs-target="#liquid-cooler"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Liquid
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-cooler" aria-labelledby="all-cooler-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${allCooler}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="cooler">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="air-cooler" aria-labelledby="air-cooler-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${airCooler}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="cooler">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="liquid-cooler" aria-labelledby="liquid-cooler-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${liquidCooler}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="cooler">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ssd" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/ssd.svg"/>
+            <span class="fs-4">SSD</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-ssd-tab" aria-controls="all-ssd" data-bs-target="#all-ssd" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="samsung-ssd-tab" aria-controls="samsung-ssd" data-bs-target="#samsung-ssd"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Samsung
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="wd-ssd-tab" aria-controls="wd-ssd" data-bs-target="#wd-ssd" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Western Digital
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-ssd" aria-labelledby="all-ssd-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${allSsd}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="ssd">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="samsung-ssd" aria-labelledby="samsung-ssd-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${samsungSsd}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="ssd">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="wd-ssd" aria-labelledby="wd-ssd-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${wdSsd}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="ssd">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hdd" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/hdd.svg"/>
+            <span class="fs-4">HDD</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-hdd-tab" aria-controls="all-hdd" data-bs-target="#all-hdd" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="seagate-hdd-tab" aria-controls="seagate-hdd" data-bs-target="#seagate-hdd"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Seagate
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="wd-hdd-tab" aria-controls="wd-hdd" data-bs-target="#wd-hdd" aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Western Digital
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-hdd" aria-labelledby="all-hdd-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${allHdd}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="hdd">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="seagate-hdd" aria-labelledby="seagate-hdd-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${seagateHdd}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="hdd">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="wd-hdd" aria-labelledby="wd-hdd-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${wdHdd}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="hdd">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="case" class="page-section">
+        <div class="first-inner">
+            <img width="50" height="50" alt="#" src="/svg/case.svg"/>
+            <span class="fs-4">Case</span>
+        </div>
+        <div class="second-inner">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button id="all-case-tab" aria-controls="all-case" data-bs-target="#all-case" aria-selected="true"
+                            class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="bequiet-case-tab" aria-controls="bequiet-case" data-bs-target="#bequiet-case"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">be quiet!
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button id="master-case-tab" aria-controls="master-case" data-bs-target="#master-case"
+                            aria-selected="false"
+                            class="nav-link" type="button" role="tab" data-bs-toggle="tab">Cooler Master
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="all-case" aria-labelledby="all-case-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark show active">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${allCase}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="case">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="bequiet-case" aria-labelledby="bequiet-case-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${bequietCase}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="case">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="master-case" aria-labelledby="master-case-tab" role="tabpanel"
+                     class="tab-pane fade bg-white text-dark">
+                    <div class="d-flex flex-column">
+                        <div th:each="item : ${masterCase}" class="d-flex">
+                            <label class="radio">
+                                <input class="radio__input" type="radio" name="case">
+                                <div class="radio__radio"></div>
+                                <span th:text="${item.name}"></span>
+                            </label>
+                            <a><img class="info-button" src="/svg/info.svg" alt="#"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="info-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div id="modal_body" class="modal-body d-flex flex-column">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check Modal -->
+    <div class="modal fade" id="check-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 650px">
+            <div class="modal-content">
+                <div class="modal-body d-flex flex-column">
+                    <button type="button" class="btn-close align-self-end" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    <div class="d-flex align-items-start pb-4">
+                        <img src="/svg/cancel.svg" class="filter-red" alt="#" style="width: 3rem;"/>
+                        <div class="ms-2">
+                            <!--TODO put here text using js-->
+                            <h4>Please, choose all required components</h4>
+                            <!--TODO put here text using js-->
+                            <span></span>
+                        </div>
+                    </div>
+                    <table class="w-100">
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/cpu.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">CPU</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td>Intel Core i5-9400</td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/gpu.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">GPU</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td>Nvidia RTX 3060</td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/motherboard.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">Motherboard</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/ram.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">RAM</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/power.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">Power</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/cooler.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">Cooler</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/ssd.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">SSD</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/hdd.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">HDD</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                        <tr class="border-bottom">
+                            <td class="d-flex align-items-center my-2">
+                                <img src="/svg/case.svg" alt="#" style="width: 2.5rem;"/>
+                                <span class="ms-3">Case</span>
+                            </td>
+                            <!--TODO put here text using js-->
+                            <td></td>
+                            <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -469,7 +1006,9 @@
     <img class="w-75 filter-white" src="/svg/logo.svg" alt="#">
     <img class="filter-black" src="/svg/case-2.svg" alt="#">
     <div class="rn-div-1 align-items-center justify-content-evenly">
-        <button class="rn-btn-3 btn btn-success shadow-none w-100">Check</button>
+        <button onclick="checkComponents()" data-bs-toggle="modal"
+                data-bs-target="#check-modal" class="rn-btn-3 btn btn-success shadow-none w-100">Check
+        </button>
         <div class="rn-div-2 d-flex justify-content-evenly shadow-none w-100">
             <button onclick="resetSelections()" class="rn-btn-1 btn btn-secondary shadow-none w-100" type="button">Reset
             </button>
@@ -483,70 +1022,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script th:src="@{/js/bootstrap.bundle.js}"></script>
 <script th:src="@{/js/info-popup.js}"></script>
+<script th:src="@{/js/check-popup.js}"></script>
+<script th:src="@{/js/scrolling.js}"></script>
 
 <script>
     function resetSelections() {
-        const radioButtons = document.querySelectorAll("input[type=radio]");
+        const radioButtons = document.querySelectorAll("input[type=radio]:checked");
         radioButtons.forEach((radioButton) => radioButton.checked = false);
     }
 </script>
 
-<script>
-    // Code for changing active link on clicking
-    let buttons = $("#nav-main .my-navbar-nav .my-nav-link");
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener("click", function () {
-            let current = document.getElementsByClassName("active");
-
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" active", "");
-            }
-
-            this.className += " active";
-        });
-    }
-
-    // Code for changing active link on Scrolling
-    $(window).scroll(function () {
-        let distance = $(window).scrollTop();
-        $('.page-section').each(function (i) {
-
-            if ($(this).position().top
-                <= distance + 250) {
-
-                $('.my-navbar-nav a.active')
-                    .removeClass('active');
-
-                $('.my-navbar-nav a').eq(i)
-                    .addClass('active');
-            }
-        });
-    }).scroll();
-
-    // For smooth scrolling on clicking
-    $(document).ready(function () {
-        // Add smooth scrolling to all links
-        $("a").on('click', function (event) {
-
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-                // Prevent default anchor click behavior
-                event.preventDefault();
-
-                // Store hash
-                let hash = this.hash;
-
-                // Using jQuery's animate() method to add smooth page scroll
-                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 400, function () {
-
-                    // Add hash (#) to URL when done scrolling (default click behavior)
-                    window.location.hash = hash;
-                });
-            } // End if
-        });
-    });
-</script>
 </html>

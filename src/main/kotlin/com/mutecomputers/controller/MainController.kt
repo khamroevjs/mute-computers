@@ -3,10 +3,7 @@ package com.mutecomputers.controller
 import com.mutecomputers.model.CPU
 import com.mutecomputers.model.GPU
 import com.mutecomputers.model.Motherboard
-import com.mutecomputers.model.Person
-import com.mutecomputers.repository.CPURepository
-import com.mutecomputers.repository.GPURepository
-import com.mutecomputers.repository.MotherboardRepository
+import com.mutecomputers.repository.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -14,27 +11,38 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.servlet.ModelAndView
 
 @Controller
 @RequestMapping("/main")
 class MainController @Autowired constructor(
     private val cpuRepository: CPURepository,
     private val gpuRepository: GPURepository,
-    private val motherboardRepository: MotherboardRepository
+    private val motherboardRepository: MotherboardRepository,
+    private val ramRepository: RAMRepository,
+    private val powerRepository: PowerRepository,
+    private val coolerRepository: CoolerRepository,
+    private val ssdRepository: SSDRepository,
+    private val hddRepository: HDDRepository,
+    private val caseRepository: CaseRepository
 ) {
 
     @GetMapping("/info")
     fun info(model: Model): String {
 
-        model.addAttribute("allCpu", cpuRepository.findAll())
-        model.addAttribute("intelCpu", cpuRepository.findAllByManufacturer("Intel"))
-        model.addAttribute("amdCpu", cpuRepository.findAllByManufacturer("AMD"))
-        model.addAttribute("allGpu", gpuRepository.findAll())
+        addCpu(model)
+        addGpu(model)
+        addMotherboard(model)
+        addRam(model)
+        addPower(model)
+        addCooler(model)
+        addSsd(model)
+        addHdd(model)
+        addCase(model)
 
-        model.addAttribute("nvidiaGpu", gpuRepository.findAllByManufacturer("Nvidia"))
-        model.addAttribute("amdGpu", gpuRepository.findAllByManufacturer("AMD"))
+        return "main"
+    }
 
+    fun addMotherboard(model: Model) {
         val z590 = ArrayList<Motherboard>()
         val h570 = ArrayList<Motherboard>()
         val b560 = ArrayList<Motherboard>()
@@ -71,22 +79,53 @@ class MainController @Autowired constructor(
         model.addAttribute("b550", b550)
         model.addAttribute("x470", x470)
         model.addAttribute("b450", b450)
-
-        return "main"
     }
 
-    @PostMapping("/add-cpu")
-    fun addCpu(@RequestBody cpuList: List<CPU>) {
-        cpuRepository.saveAll(cpuList)
+    fun addCpu(model: Model) {
+        model.addAttribute("allCpu", cpuRepository.findAll())
+        model.addAttribute("intelCpu", cpuRepository.findAllByManufacturer("Intel"))
+        model.addAttribute("amdCpu", cpuRepository.findAllByManufacturer("AMD"))
     }
 
-    @PostMapping("/add-gpu")
-    fun addGpu(@RequestBody gpuList: List<GPU>) {
-        gpuRepository.saveAll(gpuList)
+    fun addGpu(model: Model) {
+        model.addAttribute("allGpu", gpuRepository.findAll())
+        model.addAttribute("nvidiaGpu", gpuRepository.findAllByManufacturer("Nvidia"))
+        model.addAttribute("amdGpu", gpuRepository.findAllByManufacturer("AMD"))
     }
 
-    @PostMapping("/add-motherboards")
-    fun addMotherboards(@RequestBody motherboardList: List<Motherboard>) {
-        motherboardRepository.saveAll(motherboardList)
+    fun addRam(model: Model) {
+        model.addAttribute("allRam", ramRepository.findAll())
+        model.addAttribute("hyperxRam", ramRepository.findAllByManufacturer("HyperX"))
+        model.addAttribute("corsairRam", ramRepository.findAllByManufacturer("Corsair"))
+    }
+
+    fun addPower(model: Model) {
+        model.addAttribute("allPower", powerRepository.findAll())
+        model.addAttribute("bequietPower", powerRepository.findAllByManufacturer("be quiet!"))
+        model.addAttribute("masterPower", powerRepository.findAllByManufacturer("Cooler Master"))
+    }
+
+    fun addCooler(model: Model) {
+        model.addAttribute("allCooler", coolerRepository.findAll())
+        model.addAttribute("airCooler", coolerRepository.findAllByType("Air"))
+        model.addAttribute("liquidCooler", coolerRepository.findAllByType("Liquid"))
+    }
+
+    fun addSsd(model: Model) {
+        model.addAttribute("allSsd", ssdRepository.findAll())
+        model.addAttribute("samsungSsd", ssdRepository.findAllByManufacturer("Samsung"))
+        model.addAttribute("wdSsd", ssdRepository.findAllByManufacturer("Western Digital"))
+    }
+
+    fun addHdd(model: Model) {
+        model.addAttribute("allHdd", hddRepository.findAll())
+        model.addAttribute("seagateHdd", hddRepository.findAllByManufacturer("Seagate"))
+        model.addAttribute("wdHdd", hddRepository.findAllByManufacturer("Western Digital"))
+    }
+
+    fun addCase(model: Model) {
+        model.addAttribute("allCase", caseRepository.findAll())
+        model.addAttribute("bequietCase", powerRepository.findAllByManufacturer("be quiet!"))
+        model.addAttribute("masterCase", powerRepository.findAllByManufacturer("Cooler Master"))
     }
 }
