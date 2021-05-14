@@ -125,7 +125,7 @@ class MainController @Autowired constructor(
 
     fun addCase(model: Model) {
         model.addAttribute("allCase", caseRepository.findAll())
-        model.addAttribute("bequietCase", powerRepository.findAllByManufacturer("be quiet!"))
-        model.addAttribute("masterCase", powerRepository.findAllByManufacturer("Cooler Master"))
+        model.addAttribute("bequietCase", caseRepository.findAllByManufacturer("be quiet!"))
+        model.addAttribute("masterCase", caseRepository.findAllByManufacturer("Cooler Master"))
     }
 }
