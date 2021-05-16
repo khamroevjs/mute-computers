@@ -102,73 +102,81 @@
             <div class="tab-content">
                 <div id="all-cpu" aria-labelledby="all-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="cpu : ${allCpu}" class="d-flex ">
-                            <label class="radio">
-                                <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
-                                       class="radio__input" type="radio"
-                                       name="cpu">
-                                <div class="radio__radio"></div>
-                                <span th:text="${cpu.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                    <table>
+                        <tr th:each="cpu : ${allCpu}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
+                                           class="radio__input" type="radio"
+                                           name="cpu">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${cpu.name}"></span>
+                                </label>
+                            </td>
+                            <td><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
                             '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
                             '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
                             '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
                             '${cpu.L2Cache}', '${cpu.L3Cache}', '${cpu.unlockedMultiplier}', '${cpu.memoryType}',
                             '${cpu.memoryBandwidth}', '${cpu.memoryChannels}', '${cpu.maxMemorySize}', '${cpu.ECCMemory}',
                             '${cpu.integratedGraphics}','${cpu.PCIExpressRevision}','${cpu.PCIExpressLanes}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal">
-                                <img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal">
+                                <img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="intel-cpu" aria-labelledby="intel-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="cpu : ${intelCpu}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
-                                       class="radio__input" type="radio" name="cpu">
-                                <div class="radio__radio"></div>
-                                <span th:text="${cpu.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                    <table>
+                        <tr th:each="cpu : ${intelCpu}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
+                                           class="radio__input" type="radio"
+                                           name="cpu">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${cpu.name}"></span>
+                                </label>
+                            </td>
+                            <td><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
                             '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
                             '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
                             '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
                             '${cpu.L2Cache}', '${cpu.L3Cache}', '${cpu.unlockedMultiplier}', '${cpu.memoryType}',
                             '${cpu.memoryBandwidth}', '${cpu.memoryChannels}', '${cpu.maxMemorySize}', '${cpu.ECCMemory}',
                             '${cpu.integratedGraphics}','${cpu.PCIExpressRevision}','${cpu.PCIExpressLanes}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal">
-                                <img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal">
+                                <img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="amd-cpu" aria-labelledby="amd-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="cpu : ${amdCpu}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
-                                       class="radio__input" type="radio" name="cpu"/>
-                                <div class="radio__radio"></div>
-                                <span th:text="${cpu.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                    <table>
+                        <tr th:each="cpu : ${amdCpu}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
+                                           class="radio__input" type="radio"
+                                           name="cpu">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${cpu.name}"></span>
+                                </label>
+                            </td>
+                            <td><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
                             '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
                             '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
                             '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
                             '${cpu.L2Cache}', '${cpu.L3Cache}', '${cpu.unlockedMultiplier}', '${cpu.memoryType}',
                             '${cpu.memoryBandwidth}', '${cpu.memoryChannels}', '${cpu.maxMemorySize}', '${cpu.ECCMemory}',
                             '${cpu.integratedGraphics}','${cpu.PCIExpressRevision}','${cpu.PCIExpressLanes}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal">
-                                <img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal">
+                                <img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -201,63 +209,78 @@
             <div class="tab-content">
                 <div id="all-gpu" aria-labelledby="all-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allGpu}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
-                                       type="radio" name="gpu">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
+                    <table>
+                        <tr th:each="item: ${allGpu}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                           type="radio" name="gpu">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
                             '${item.microarchitecture}', '${item.fabricationProcess}', '${item.TDP}', '${item.interfacePort}',
                             '${item.multiGPUSupport}', '${item.baseClock}', '${item.boostClock}', '${item.shadingUnits}',
                             '${item.L1Cache}', '${item.L2Cache}', '${item.L3Cache}', '${item.memoryType}', '${item.memorySize}',
                             '${item.memoryClock}', '${item.memoryClockEffective}', '${item.memoryBus}','${item.memoryBandwidth}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="nvidia-gpu" aria-labelledby="nvidia-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${nvidiaGpu}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
-                                       type="radio" name="gpu">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
+                    <table>
+                        <tr th:each="item: ${nvidiaGpu}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                           type="radio" name="gpu">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
                             '${item.microarchitecture}', '${item.fabricationProcess}', '${item.TDP}', '${item.interfacePort}',
                             '${item.multiGPUSupport}', '${item.baseClock}', '${item.boostClock}', '${item.shadingUnits}',
                             '${item.L1Cache}', '${item.L2Cache}', '${item.L3Cache}', '${item.memoryType}', '${item.memorySize}',
                             '${item.memoryClock}', '${item.memoryClockEffective}', '${item.memoryBus}','${item.memoryBandwidth}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="amd-gpu" aria-labelledby="amd-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${amdGpu}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
-                                       type="radio" name="gpu">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
+                    <table>
+                        <tr th:each="item: ${amdGpu}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                           type="radio" name="gpu">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupGpu('${item.manufacturer}', '${item.name}', '${item.releaseYear}',
                             '${item.microarchitecture}', '${item.fabricationProcess}', '${item.TDP}', '${item.interfacePort}',
                             '${item.multiGPUSupport}', '${item.baseClock}', '${item.boostClock}', '${item.shadingUnits}',
                             '${item.L1Cache}', '${item.L2Cache}', '${item.L3Cache}', '${item.memoryType}', '${item.memorySize}',
                             '${item.memoryClock}', '${item.memoryClockEffective}', '${item.memoryBus}','${item.memoryBandwidth}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -332,201 +355,256 @@
             <div class="tab-content">
                 <div id="all-chipsets" aria-labelledby="all-chipsets-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allMotherboards}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${allMotherboards}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="Z590" aria-labelledby="Z590-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${z590}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${z590}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="H570" aria-labelledby="H570-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${h570}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${h570}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="B560" aria-labelledby="B560-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${b560}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${b560}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="Z490" aria-labelledby="Z490-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${z490}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${z490}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="H470" aria-labelledby="H470-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${h470}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${h470}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="B460" aria-labelledby="B460-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${b460}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${b460}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="X570" aria-labelledby="X570-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${x570}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${x570}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="B550" aria-labelledby="B550-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${b550}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${b550}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="X470" aria-labelledby="X470-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${x470}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${x470}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="B450" aria-labelledby="B450-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${b450}" class="d-flex">
-                            <label class="radio">
-                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
-                                       class="radio__input" type="radio" name="motherboard">
-                                <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
+                    <table>
+                        <tr th:each="item : ${b450}">
+                            <td>
+                                <label class="radio">
+                                    <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                           class="radio__input" type="radio" name="motherboard">
+                                    <div class="radio__radio"></div>
+                                    <span th:text="${item.name}"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupMotherboard('${item.manufacturer}', '${item.name}', '${item.chipset}',
                             '${item.formFactor}', '${item.memorySlots}', '${item.socket}', '${item.wifiSupport}',
                             '${item.bluetoothSupport}','${item.PCIExpressRevision}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -560,9 +638,9 @@
             <div class="tab-content">
                 <div id="all-ram" aria-labelledby="all-ram-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allRam}" class="d-flex">
-                            <label class="radio" onclick="showSelect('ram')">
+                    <table>
+                        <tr th:each="item : ${allRam}">
+                            <td><label class="radio" onclick="showSelect('ram')">
                                 <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
                                        class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
@@ -574,18 +652,22 @@
                                 </select>
                                 <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
-                            <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
                             '${item.capacity}', '${item.type}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="hyperx-ram" aria-labelledby="hyperx-ram-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${hyperxRam}" class="d-flex">
-                            <label class="radio" onclick="showSelect('ram')">
+                    <table>
+                        <tr th:each="item : ${hyperxRam}">
+                            <td><label class="radio" onclick="showSelect('ram')">
                                 <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
                                        class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
@@ -597,18 +679,22 @@
                                 </select>
                                 <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
-                            <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
                             '${item.capacity}', '${item.type}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="corsair-ram" aria-labelledby="corsair-ram-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${corsairRam}" class="d-flex">
-                            <label class="radio" onclick="showSelect('ram')">
+                    <table>
+                        <tr th:each="item : ${corsairRam}">
+                            <td><label class="radio" onclick="showSelect('ram')">
                                 <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
                                        class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
@@ -620,12 +706,16 @@
                                 </select>
                                 <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
-                            <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
+                            </td>
+                            <td>
+                                <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
                             '${item.capacity}', '${item.type}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -660,54 +750,57 @@
             <div class="tab-content">
                 <div id="all-power" aria-labelledby="all-power-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allPower}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${allPower}">
+                            <td><label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="power">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
                             '${item.wattage}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="bequiet-power" aria-labelledby="bequiet-power-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${bequietPower}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${bequietPower}">
+                            <td><label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="power">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
                             '${item.wattage}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="master-power" aria-labelledby="master-power-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${masterPower}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${masterPower}">
+                            <td><label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="power">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
                             '${item.wattage}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -742,54 +835,57 @@
             <div class="tab-content">
                 <div id="all-cooler" aria-labelledby="all-cooler-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allCooler}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${allCooler}">
+                            <td><label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="cooler">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
                             '${item.dimensions}', '${item.TDP}', '${item.fanCount}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="air-cooler" aria-labelledby="air-cooler-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${airCooler}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${airCooler}">
+                            <td><label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="cooler">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
                             '${item.dimensions}', '${item.TDP}', '${item.fanCount}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="liquid-cooler" aria-labelledby="liquid-cooler-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${liquidCooler}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${liquidCooler}">
+                            <td><label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="cooler">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
                             '${item.dimensions}', '${item.TDP}', '${item.fanCount}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -822,9 +918,9 @@
             <div class="tab-content">
                 <div id="all-ssd" aria-labelledby="all-ssd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allSsd}" class="d-flex">
-                            <label class="radio" onclick="showSelect('ssd')">
+                    <table>
+                        <tr th:each="item : ${allSsd}">
+                            <td><label class="radio" onclick="showSelect('ssd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="ssd">
                                 <div class="radio__radio"></div>
@@ -833,19 +929,20 @@
                                     <option>2</option>
                                 </select>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.totalBytesWritten}', '${item.formFactor}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="samsung-ssd" aria-labelledby="samsung-ssd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${samsungSsd}" class="d-flex">
-                            <label class="radio" onclick="showSelect('ssd')">
+                    <table>
+                        <tr th:each="item : ${samsungSsd}">
+                            <td><label class="radio" onclick="showSelect('ssd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="ssd">
                                 <div class="radio__radio"></div>
@@ -854,19 +951,20 @@
                                     <option>2</option>
                                 </select>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.totalBytesWritten}', '${item.formFactor}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="wd-ssd" aria-labelledby="wd-ssd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${wdSsd}" class="d-flex">
-                            <label class="radio" onclick="showSelect('ssd')">
+                    <table>
+                        <tr th:each="item : ${wdSsd}">
+                            <td><label class="radio" onclick="showSelect('ssd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="ssd">
                                 <div class="radio__radio"></div>
@@ -875,13 +973,14 @@
                                     <option>2</option>
                                 </select>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.totalBytesWritten}', '${item.formFactor}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg"
+                                                                     alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -914,9 +1013,9 @@
             <div class="tab-content">
                 <div id="all-hdd" aria-labelledby="all-hdd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allHdd}" class="d-flex">
-                            <label class="radio" onclick="showSelect('hdd')">
+                    <table>
+                        <tr th:each="item : ${allHdd}">
+                            <td><label class="radio" onclick="showSelect('hdd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="hdd">
                                 <div class="radio__radio"></div>
@@ -925,19 +1024,19 @@
                                     <option>2</option>
                                 </select>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.cache}', '${item.formFactor}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="seagate-hdd" aria-labelledby="seagate-hdd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${seagateHdd}" class="d-flex">
-                            <label class="radio" onclick="showSelect('hdd')">
+                    <table>
+                        <tr th:each="item : ${seagateHdd}">
+                            <td><label class="radio" onclick="showSelect('hdd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="hdd">
                                 <div class="radio__radio"></div>
@@ -946,19 +1045,19 @@
                                     <option>2</option>
                                 </select>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.cache}', '${item.formFactor}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="wd-hdd" aria-labelledby="wd-hdd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${wdHdd}" class="d-flex">
-                            <label class="radio" onclick="showSelect('hdd')">
+                    <table>
+                        <tr th:each="item : ${wdHdd}">
+                            <td><label class="radio" onclick="showSelect('hdd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="hdd">
                                 <div class="radio__radio"></div>
@@ -967,13 +1066,13 @@
                                     <option>2</option>
                                 </select>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.cache}', '${item.formFactor}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -1007,54 +1106,54 @@
             <div class="tab-content">
                 <div id="all-case" aria-labelledby="all-case-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${allCase}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${allCase}">
+                            <td> <label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="case">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
                             '${item.dimensions}', '${item.weight}', '${item.maxCoolerHeight}', '${item.maxGpuLength}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="bequiet-case" aria-labelledby="bequiet-case-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${bequietCase}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${bequietCase}">
+                            <td> <label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="case">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
                             '${item.dimensions}', '${item.weight}', '${item.maxCoolerHeight}', '${item.maxGpuLength}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="master-case" aria-labelledby="master-case-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <div class="d-flex flex-column">
-                        <div th:each="item : ${masterCase}" class="d-flex">
-                            <label class="radio">
+                    <table>
+                        <tr th:each="item : ${masterCase}">
+                            <td> <label class="radio">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="case">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
-                            </label>
-                            <a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
+                            </label></td>
+                            <td><a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
                             '${item.dimensions}', '${item.weight}', '${item.maxCoolerHeight}', '${item.maxGpuLength}')|"
-                               data-bs-toggle="modal"
-                               data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a>
-                        </div>
-                    </div>
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#info-modal"><img class="info-button" src="/svg/info.svg" alt="#"/></a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

@@ -430,11 +430,7 @@ function popupMotherboard(
     div.append(divRow)
 }
 
-function popupRam(manufacturer,
-                  name,
-                  speed, //MHz
-                  capacity,
-                  type) {
+function popupRam(manufacturer, name, speed, capacity, type) {
 
     const element = document.getElementById('modal_body')
     element.innerHTML = ''
