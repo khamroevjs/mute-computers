@@ -44,7 +44,7 @@ function getComponentString(element) {
     if (element === null)
         return ''
 
-    const elementArray = element.value.split('')
+    const elementArray = element.value.split('|')
     return elementArray[0] + ' ' + elementArray[1]
 }
 

@@ -6,9 +6,7 @@
 /*    margin: 2rem 5rem 5rem 5rem;*/
 /*}*/
 
-.page-section {
-    margin: 2rem 5rem 5rem 5rem;
-}
+
 
 #cpu {
     /*display: flex;*/
@@ -59,4 +57,19 @@ select {
     background: #2f3640;
     color: #fff;
     margin-right: 0.6rem;
+}
+
+/* Small screen */
+@media only screen and (max-width: 768px) {
+    .page-section {
+        margin: 1.5rem;
+        /*margin: 1rem 1rem 5rem 5rem;*/
+    }
+}
+
+/* Large screen */
+@media only screen and (min-width: 768px) {
+    .page-section {
+        margin: 2rem 5rem 5rem 5rem;
+    }
 }

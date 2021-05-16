@@ -26,10 +26,6 @@ body::-webkit-scrollbar-thumb {
     border-radius: 0.25rem;
 }
 
-main {
-    margin-left: 5rem;
-}
-
 .my-navbar {
     position: fixed;
     background-color: var(--bg-primary);
@@ -159,6 +155,10 @@ main {
 
 /* Large screen */
 @media only screen and (min-width: 768px) {
+    main {
+        margin-left: 5rem;
+    }
+
     .my-navbar {
         top: 0;
         width: 5rem;

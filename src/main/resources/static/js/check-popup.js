@@ -31,7 +31,6 @@ function checkComponents() {
         firstImg.classList.remove('filter-green', 'filter-red', 'filter-grey')
         firstImg.classList.add('filter-red')
         h1.innerHTML = 'Please, choose all required components'
-        h1.nextElementSibling.innerHTML = '' //todo can be remove
         h1.nextElementSibling.style.display = 'none'
         return;
     }
