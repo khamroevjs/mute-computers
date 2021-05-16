@@ -76,12 +76,12 @@
 
 <main>
     <div id="cpu" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/cpu.svg"/>
-            <span class="fs-4">CPU</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/cpu.svg"/>
+            <span class="ms-3 fs-2 fw-bold">CPU</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-cpu-tab" aria-controls="all-cpu" data-bs-target="#all-cpu" aria-selected="true"
                             class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
@@ -101,19 +101,19 @@
             </ul>
             <div class="tab-content">
                 <div id="all-cpu" aria-labelledby="all-cpu-tab" role="tabpanel"
-                     class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="cpu : ${allCpu}">
-                            <td>
-                                <label class="radio">
+                     class="tab-pane fade bg-white text-dark show active ">
+                    <table class="w-100">
+                        <tr th:each="cpu : ${allCpu}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
                                            class="radio__input" type="radio"
                                            name="cpu">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${cpu.name}"></span>
+                                    <span class="fs-5" th:text="${cpu.name}"></span>
                                 </label>
                             </td>
-                            <td><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
+                            <td ><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
                             '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
                             '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
                             '${cpu.turboFrequency}', '${cpu.L1CacheInstruction}', '${cpu.L1CacheDate}',
@@ -128,15 +128,15 @@
                 </div>
                 <div id="intel-cpu" aria-labelledby="intel-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="cpu : ${intelCpu}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="cpu : ${intelCpu}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
                                            class="radio__input" type="radio"
                                            name="cpu">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${cpu.name}"></span>
+                                    <span class="fs-5" th:text="${cpu.name}"></span>
                                 </label>
                             </td>
                             <td><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
@@ -154,15 +154,15 @@
                 </div>
                 <div id="amd-cpu" aria-labelledby="amd-cpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="cpu : ${amdCpu}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="cpu : ${amdCpu}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
                                            class="radio__input" type="radio"
                                            name="cpu">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${cpu.name}"></span>
+                                    <span class="fs-5" th:text="${cpu.name}"></span>
                                 </label>
                             </td>
                             <td><a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
@@ -183,12 +183,12 @@
     </div>
 
     <div id="gpu" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/gpu.svg"/>
-            <span class="fs-4">GPU</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/gpu.svg"/>
+            <span class="ms-3 fs-2 fw-bold">GPU</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-gpu-tab" aria-controls="all-gpu" data-bs-target="#all-gpu" aria-selected="true"
                             class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
@@ -209,14 +209,14 @@
             <div class="tab-content">
                 <div id="all-gpu" aria-labelledby="all-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item: ${allGpu}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item: ${allGpu}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                            type="radio" name="gpu">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -234,14 +234,14 @@
                 </div>
                 <div id="nvidia-gpu" aria-labelledby="nvidia-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item: ${nvidiaGpu}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item: ${nvidiaGpu}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                            type="radio" name="gpu">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -259,14 +259,14 @@
                 </div>
                 <div id="amd-gpu" aria-labelledby="amd-gpu-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item: ${amdGpu}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item: ${amdGpu}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                            type="radio" name="gpu">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -287,12 +287,12 @@
     </div>
 
     <div id="motherboard" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/motherboard.svg"/>
-            <span class="fs-4">Motherboard</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/motherboard.svg"/>
+            <span class="ms-3 fs-2 fw-bold">Motherboard</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-chipsets-tab" aria-controls="all-chipsets"
                             data-bs-target="#all-chipsets" aria-selected="true"
@@ -355,14 +355,14 @@
             <div class="tab-content">
                 <div id="all-chipsets" aria-labelledby="all-chipsets-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allMotherboards}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${allMotherboards}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -378,14 +378,14 @@
                 </div>
                 <div id="Z590" aria-labelledby="Z590-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${z590}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${z590}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -401,14 +401,14 @@
                 </div>
                 <div id="H570" aria-labelledby="H570-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${h570}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${h570}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -424,14 +424,14 @@
                 </div>
                 <div id="B560" aria-labelledby="B560-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${b560}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${b560}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -447,14 +447,14 @@
                 </div>
                 <div id="Z490" aria-labelledby="Z490-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${z490}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${z490}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -470,14 +470,14 @@
                 </div>
                 <div id="H470" aria-labelledby="H470-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${h470}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${h470}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75" >
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -493,14 +493,14 @@
                 </div>
                 <div id="B460" aria-labelledby="B460-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${b460}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${b460}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -516,14 +516,14 @@
                 </div>
                 <div id="X570" aria-labelledby="X570-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${x570}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${x570}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -539,14 +539,14 @@
                 </div>
                 <div id="B550" aria-labelledby="B550-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${b550}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${b550}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -562,14 +562,14 @@
                 </div>
                 <div id="X470" aria-labelledby="X470-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${x470}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${x470}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -585,14 +585,14 @@
                 </div>
                 <div id="B450" aria-labelledby="B450-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${b450}">
-                            <td>
-                                <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${b450}" class="border-bottom">
+                            <td class="w-100">
+                                <label class="radio my-0-75">
                                     <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
                                            class="radio__input" type="radio" name="motherboard">
                                     <div class="radio__radio"></div>
-                                    <span th:text="${item.name}"></span>
+                                    <span class="fs-5" th:text="${item.name}"></span>
                                 </label>
                             </td>
                             <td>
@@ -611,12 +611,12 @@
     </div>
 
     <div id="ram" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/ram.svg"/>
-            <span class="fs-4">RAM</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/ram.svg"/>
+            <span class="ms-3 fs-2 fw-bold">RAM</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-ram-tab" aria-controls="all-ram" data-bs-target="#all-ram" aria-selected="true"
                             class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
@@ -638,9 +638,9 @@
             <div class="tab-content">
                 <div id="all-ram" aria-labelledby="all-ram-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allRam}">
-                            <td><label class="radio" onclick="showSelect('ram')">
+                    <table class="w-100">
+                        <tr th:each="item : ${allRam}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('ram')">
                                 <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
                                        class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
@@ -650,7 +650,7 @@
                                     <option>3</option>
                                     <option>4</option>
                                 </select>
-                                <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
+                                <span class="fs-5" th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
                             </td>
                             <td>
@@ -665,9 +665,9 @@
                 </div>
                 <div id="hyperx-ram" aria-labelledby="hyperx-ram-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${hyperxRam}">
-                            <td><label class="radio" onclick="showSelect('ram')">
+                    <table class="w-100">
+                        <tr th:each="item : ${hyperxRam}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('ram')">
                                 <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
                                        class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
@@ -677,7 +677,7 @@
                                     <option>3</option>
                                     <option>4</option>
                                 </select>
-                                <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
+                                <span class="fs-5" th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
                             </td>
                             <td>
@@ -692,9 +692,9 @@
                 </div>
                 <div id="corsair-ram" aria-labelledby="corsair-ram-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${corsairRam}">
-                            <td><label class="radio" onclick="showSelect('ram')">
+                    <table class="w-100">
+                        <tr th:each="item : ${corsairRam}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('ram')">
                                 <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
                                        class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
@@ -704,7 +704,7 @@
                                     <option>3</option>
                                     <option>4</option>
                                 </select>
-                                <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
+                                <span class="fs-5" th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
                             </td>
                             <td>
@@ -722,12 +722,12 @@
     </div>
 
     <div id="power" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/power.svg"/>
-            <span class="fs-4">Power</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/power.svg"/>
+            <span class="ms-3 fs-2 fw-bold">Power</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-power-tab" aria-controls="all-power" data-bs-target="#all-power"
                             aria-selected="true"
@@ -750,13 +750,13 @@
             <div class="tab-content">
                 <div id="all-power" aria-labelledby="all-power-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allPower}">
-                            <td><label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${allPower}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="power">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
                             '${item.wattage}')|"
@@ -768,13 +768,13 @@
                 </div>
                 <div id="bequiet-power" aria-labelledby="bequiet-power-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${bequietPower}">
-                            <td><label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${bequietPower}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="power">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
                             '${item.wattage}')|"
@@ -786,13 +786,13 @@
                 </div>
                 <div id="master-power" aria-labelledby="master-power-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${masterPower}">
-                            <td><label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${masterPower}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="power">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupPower('${item.manufacturer}', '${item.name}', '${item.certificate80Plus}',
                             '${item.wattage}')|"
@@ -807,12 +807,12 @@
     </div>
 
     <div id="cooler" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/cooler.svg"/>
-            <span class="fs-4">Cooler</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/cooler.svg"/>
+            <span class="ms-3 fs-2 fw-bold">Cooler</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-cooler-tab" aria-controls="all-cooler" data-bs-target="#all-cooler"
                             aria-selected="true"
@@ -835,13 +835,13 @@
             <div class="tab-content">
                 <div id="all-cooler" aria-labelledby="all-cooler-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allCooler}">
-                            <td><label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${allCooler}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="cooler">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
                             '${item.dimensions}', '${item.TDP}', '${item.fanCount}')|"
@@ -853,13 +853,13 @@
                 </div>
                 <div id="air-cooler" aria-labelledby="air-cooler-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${airCooler}">
-                            <td><label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${airCooler}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="cooler">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
                             '${item.dimensions}', '${item.TDP}', '${item.fanCount}')|"
@@ -871,13 +871,13 @@
                 </div>
                 <div id="liquid-cooler" aria-labelledby="liquid-cooler-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${liquidCooler}">
-                            <td><label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${liquidCooler}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="cooler">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupCooler('${item.manufacturer}', '${item.name}', '${item.type}',
                             '${item.dimensions}', '${item.TDP}', '${item.fanCount}')|"
@@ -892,12 +892,12 @@
     </div>
 
     <div id="ssd" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/ssd.svg"/>
-            <span class="fs-4">SSD</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/ssd.svg"/>
+            <span class="ms-3 fs-2 fw-bold">SSD</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-ssd-tab" aria-controls="all-ssd" data-bs-target="#all-ssd" aria-selected="true"
                             class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
@@ -918,9 +918,9 @@
             <div class="tab-content">
                 <div id="all-ssd" aria-labelledby="all-ssd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allSsd}">
-                            <td><label class="radio" onclick="showSelect('ssd')">
+                    <table class="w-100">
+                        <tr th:each="item : ${allSsd}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('ssd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="ssd">
                                 <div class="radio__radio"></div>
@@ -928,7 +928,7 @@
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.totalBytesWritten}', '${item.formFactor}')|"
@@ -940,9 +940,9 @@
                 </div>
                 <div id="samsung-ssd" aria-labelledby="samsung-ssd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${samsungSsd}">
-                            <td><label class="radio" onclick="showSelect('ssd')">
+                    <table class="w-100">
+                        <tr th:each="item : ${samsungSsd}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('ssd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="ssd">
                                 <div class="radio__radio"></div>
@@ -950,7 +950,7 @@
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.totalBytesWritten}', '${item.formFactor}')|"
@@ -962,9 +962,9 @@
                 </div>
                 <div id="wd-ssd" aria-labelledby="wd-ssd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${wdSsd}">
-                            <td><label class="radio" onclick="showSelect('ssd')">
+                    <table class="w-100">
+                        <tr th:each="item : ${wdSsd}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('ssd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="ssd">
                                 <div class="radio__radio"></div>
@@ -972,7 +972,7 @@
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.totalBytesWritten}', '${item.formFactor}')|"
@@ -987,12 +987,12 @@
     </div>
 
     <div id="hdd" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/hdd.svg"/>
-            <span class="fs-4">HDD</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/hdd.svg"/>
+            <span class="ms-3 fs-2 fw-bold">HDD</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-hdd-tab" aria-controls="all-hdd" data-bs-target="#all-hdd" aria-selected="true"
                             class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
@@ -1013,9 +1013,9 @@
             <div class="tab-content">
                 <div id="all-hdd" aria-labelledby="all-hdd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allHdd}">
-                            <td><label class="radio" onclick="showSelect('hdd')">
+                    <table class="w-100">
+                        <tr th:each="item : ${allHdd}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('hdd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="hdd">
                                 <div class="radio__radio"></div>
@@ -1023,7 +1023,7 @@
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.cache}', '${item.formFactor}')|"
@@ -1034,9 +1034,9 @@
                 </div>
                 <div id="seagate-hdd" aria-labelledby="seagate-hdd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${seagateHdd}">
-                            <td><label class="radio" onclick="showSelect('hdd')">
+                    <table class="w-100">
+                        <tr th:each="item : ${seagateHdd}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('hdd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="hdd">
                                 <div class="radio__radio"></div>
@@ -1044,7 +1044,7 @@
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.cache}', '${item.formFactor}')|"
@@ -1055,9 +1055,9 @@
                 </div>
                 <div id="wd-hdd" aria-labelledby="wd-hdd-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${wdHdd}">
-                            <td><label class="radio" onclick="showSelect('hdd')">
+                    <table class="w-100">
+                        <tr th:each="item : ${wdHdd}" class="border-bottom">
+                            <td class="w-100"><label class="radio my-0-75" onclick="showSelect('hdd')">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="hdd">
                                 <div class="radio__radio"></div>
@@ -1065,7 +1065,7 @@
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
                             '${item.readSpeed}', '${item.writeSpeed}', '${item.cache}', '${item.formFactor}')|"
@@ -1079,12 +1079,12 @@
     </div>
 
     <div id="case" class="page-section">
-        <div class="first-inner">
-            <img width="50" height="50" alt="#" src="/svg/case.svg"/>
-            <span class="fs-4">Case</span>
+        <div class="first-inner my-3">
+            <img width="65" height="65" alt="#" src="/svg/case.svg"/>
+            <span class="ms-3 fs-2 fw-bold">Case</span>
         </div>
         <div class="second-inner">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs fs-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button id="all-case-tab" aria-controls="all-case" data-bs-target="#all-case" aria-selected="true"
                             class="nav-link active" type="button" role="tab" data-bs-toggle="tab">All
@@ -1106,13 +1106,13 @@
             <div class="tab-content">
                 <div id="all-case" aria-labelledby="all-case-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark show active">
-                    <table>
-                        <tr th:each="item : ${allCase}">
-                            <td> <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${allCase}" class="border-bottom">
+                            <td class="w-100"> <label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="case">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
                             '${item.dimensions}', '${item.weight}', '${item.maxCoolerHeight}', '${item.maxGpuLength}')|"
@@ -1123,13 +1123,13 @@
                 </div>
                 <div id="bequiet-case" aria-labelledby="bequiet-case-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${bequietCase}">
-                            <td> <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${bequietCase}" class="border-bottom">
+                            <td class="w-100"> <label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="case">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
                             '${item.dimensions}', '${item.weight}', '${item.maxCoolerHeight}', '${item.maxGpuLength}')|"
@@ -1140,13 +1140,13 @@
                 </div>
                 <div id="master-case" aria-labelledby="master-case-tab" role="tabpanel"
                      class="tab-pane fade bg-white text-dark">
-                    <table>
-                        <tr th:each="item : ${masterCase}">
-                            <td> <label class="radio">
+                    <table class="w-100">
+                        <tr th:each="item : ${masterCase}" class="border-bottom">
+                            <td class="w-100"> <label class="radio my-0-75">
                                 <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
                                        type="radio" name="case">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name}"></span>
+                                <span class="fs-5" th:text="${item.name}"></span>
                             </label></td>
                             <td><a th:attr="onclick=|popupCase('${item.manufacturer}', '${item.name}', '${item.size}',
                             '${item.dimensions}', '${item.weight}', '${item.maxCoolerHeight}', '${item.maxGpuLength}')|"
