@@ -6,7 +6,7 @@
 /*    margin: 2rem 5rem 5rem 5rem;*/
 /*}*/
 
-.page-section{
+.page-section {
     margin: 2rem 5rem 5rem 5rem;
 }
 
@@ -49,4 +49,14 @@
 
 .filter-red {
     filter: invert(14%) sepia(65%) saturate(5924%) hue-rotate(356deg) brightness(98%) contrast(96%);
+}
+
+.filter-grey {
+    filter: invert(74%) sepia(0%) saturate(61%) hue-rotate(145deg) brightness(94%) contrast(83%);
+}
+
+select {
+    background: #2f3640;
+    color: #fff;
+    margin-right: 0.6rem;
 }

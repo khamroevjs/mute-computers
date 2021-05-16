@@ -7,7 +7,6 @@
 
     <!-- Bootstrap 5.0-->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
-
     <link th:href="@{/css/left-navbar.css}" rel="stylesheet">
     <link th:href="@{/css/right-navbar.css}" rel="stylesheet">
     <link th:href="@{/css/radio-button.css}" rel="stylesheet">
@@ -106,7 +105,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="cpu : ${allCpu}" class="d-flex ">
                             <label class="radio">
-                                <input th:value="${cpu.manufacturer + '|' + cpu.name}" class="radio__input" type="radio"
+                                <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
+                                       class="radio__input" type="radio"
                                        name="cpu">
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
@@ -129,11 +129,11 @@
                     <div class="d-flex flex-column">
                         <div th:each="cpu : ${intelCpu}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="cpu">
+                                <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
+                                       class="radio__input" type="radio" name="cpu">
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
                             </label>
-
                             <a th:attr="onclick=|popupCpu('${cpu.manufacturer}', '${cpu.name}', '${cpu.releaseYear}',
                             '${cpu.fabricationProcess}', '${cpu.TDP}', '${cpu.socket}', '${cpu.microarchitecture}',
                             '${cpu.codeName}', '${cpu.cores}', '${cpu.threads}', '${cpu.baseFrequency}',
@@ -152,7 +152,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="cpu : ${amdCpu}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="cpu"/>
+                                <input th:value="${cpu.manufacturer + '|' + cpu.name + '|' + cpu.socket + '|' + cpu.integratedGraphics}"
+                                       class="radio__input" type="radio" name="cpu"/>
                                 <div class="radio__radio"></div>
                                 <span th:text="${cpu.name}"></span>
                             </label>
@@ -203,7 +204,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allGpu}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="gpu">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="gpu">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -222,7 +224,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${nvidiaGpu}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="gpu">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="gpu">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -241,7 +244,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${amdGpu}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="gpu">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="gpu">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -331,7 +335,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allMotherboards}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -348,7 +353,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${z590}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -365,7 +371,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${h570}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -382,7 +389,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${b560}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -399,7 +407,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${z490}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -416,7 +425,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${h470}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -433,7 +443,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${b460}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -450,7 +461,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${x570}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -467,7 +479,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${b550}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -484,7 +497,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${x470}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -501,7 +515,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${b450}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="motherboard">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.memorySlots + '|' + item.socket + '|' + item.chipset}"
+                                       class="radio__input" type="radio" name="motherboard">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -547,10 +562,17 @@
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allRam}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="ram">
+                            <label class="radio" onclick="showSelect('ram')">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
+                                       class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name + ' ' + item.capacity + 'GB' + ' ' + item.speed + 'MHz'}"></span>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                                <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
                             <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
                             '${item.capacity}', '${item.type}')|"
@@ -563,10 +585,17 @@
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${hyperxRam}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="ram">
+                            <label class="radio" onclick="showSelect('ram')">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
+                                       class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name + ' ' + item.capacity + 'GB' + ' ' + item.speed + 'MHz'}"></span>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                                <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
                             <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
                             '${item.capacity}', '${item.type}')|"
@@ -579,10 +608,17 @@
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${corsairRam}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="ram">
+                            <label class="radio" onclick="showSelect('ram')">
+                                <input th:value="${item.manufacturer + '|' + item.name + '|' + item.capacity + '|' + item.speed}"
+                                       class="radio__input" type="radio" name="ram">
                                 <div class="radio__radio"></div>
-                                <span th:text="${item.name + ' ' + item.capacity + 'GB' + ' ' + item.speed + 'MHz'}"></span>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                                <span th:text="${item.name + ' ' + item.capacity + 'GB ' + item.speed + 'MHz'}"></span>
                             </label>
                             <a th:attr="onclick=|popupRam('${item.manufacturer}', '${item.name}', '${item.speed}',
                             '${item.capacity}', '${item.type}')|"
@@ -627,7 +663,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allPower}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="power">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="power">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -643,7 +680,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${bequietPower}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="power">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="power">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -659,7 +697,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${masterPower}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="power">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="power">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -706,7 +745,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allCooler}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="cooler">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="cooler">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -722,7 +762,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${airCooler}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="cooler">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="cooler">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -738,7 +779,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${liquidCooler}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="cooler">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="cooler">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -782,9 +824,14 @@
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allSsd}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="ssd">
+                            <label class="radio" onclick="showSelect('ssd')">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="ssd">
                                 <div class="radio__radio"></div>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
                                 <span th:text="${item.name}"></span>
                             </label>
                             <a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
@@ -798,9 +845,14 @@
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${samsungSsd}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="ssd">
+                            <label class="radio" onclick="showSelect('ssd')">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="ssd">
                                 <div class="radio__radio"></div>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
                                 <span th:text="${item.name}"></span>
                             </label>
                             <a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
@@ -814,9 +866,14 @@
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${wdSsd}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="ssd">
+                            <label class="radio" onclick="showSelect('ssd')">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="ssd">
                                 <div class="radio__radio"></div>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
                                 <span th:text="${item.name}"></span>
                             </label>
                             <a th:attr="onclick=|popupSsd('${item.manufacturer}', '${item.name}', '${item.capacity}',
@@ -859,9 +916,14 @@
                      class="tab-pane fade bg-white text-dark show active">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allHdd}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="hdd">
+                            <label class="radio" onclick="showSelect('hdd')">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="hdd">
                                 <div class="radio__radio"></div>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
                                 <span th:text="${item.name}"></span>
                             </label>
                             <a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
@@ -875,9 +937,14 @@
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${seagateHdd}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="hdd">
+                            <label class="radio" onclick="showSelect('hdd')">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="hdd">
                                 <div class="radio__radio"></div>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
                                 <span th:text="${item.name}"></span>
                             </label>
                             <a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
@@ -891,9 +958,14 @@
                      class="tab-pane fade bg-white text-dark">
                     <div class="d-flex flex-column">
                         <div th:each="item : ${wdHdd}" class="d-flex">
-                            <label class="radio">
-                                <input class="radio__input" type="radio" name="hdd">
+                            <label class="radio" onclick="showSelect('hdd')">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="hdd">
                                 <div class="radio__radio"></div>
+                                <select hidden>
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
                                 <span th:text="${item.name}"></span>
                             </label>
                             <a th:attr="onclick=|popupHdd('${item.manufacturer}', '${item.name}', '${item.capacity}',
@@ -938,7 +1010,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${allCase}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="case">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="case">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -954,7 +1027,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${bequietCase}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="case">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="case">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -970,7 +1044,8 @@
                     <div class="d-flex flex-column">
                         <div th:each="item : ${masterCase}" class="d-flex">
                             <label class="radio">
-                                <input class="radio__input" type="radio" name="case">
+                                <input th:value="${item.manufacturer + '|' + item.name}" class="radio__input"
+                                       type="radio" name="case">
                                 <div class="radio__radio"></div>
                                 <span th:text="${item.name}"></span>
                             </label>
@@ -985,7 +1060,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Info Modal -->
     <div class="modal fade" id="info-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1002,7 +1077,7 @@
                 <div class="modal-body d-flex flex-column">
                     <button type="button" class="btn-close align-self-end" data-bs-dismiss="modal"
                             aria-label="Close"></button>
-                    <div class="d-flex align-items-start pb-4">
+                    <div class="d-flex align-items-center pb-4">
                         <img src="/svg/cancel.svg" class="filter-red" alt="#" style="width: 3rem;"/>
                         <div class="ms-2">
                             <!--TODO put here text using js-->
@@ -1110,24 +1185,89 @@
         <div class="rn-div-2 d-flex justify-content-evenly shadow-none w-100">
             <button onclick="resetSelections()" class="rn-btn-1 btn btn-secondary shadow-none w-100" type="button">Reset
             </button>
-            <button class="rn-btn-2 btn btn-secondary shadow-none w-100">Export</button>
+            <button onclick="exportPdf()" class="rn-btn-2 btn btn-secondary shadow-none w-100">Export</button>
         </div>
     </div>
 </nav>
+
+<div hidden>
+    <div id="pdf-template" class="container">
+        <img src="/svg/logo.svg" class="my-4" alt="logo"/>
+        <div style="border-bottom: 4px solid blueviolet"></div>
+        <table class="table">
+            <tr>
+                <th class="py-3">Name</th>
+                <th class="py-3">Component</th>
+            </tr>
+            <tr>
+                <td class="py-3">CPU</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">GPU</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">Motherboard</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">RAM</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">Power</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">Cooler</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">SSD</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">HDD</td>
+                <td class="py-3"></td>
+            </tr>
+            <tr>
+                <td class="py-3">Case</td>
+                <td class="py-3"></td>
+            </tr>
+        </table>
+        <div id="date" class="fw-bold d-flex mt-4">
+            <span class="me-2">Configuration date:</span>
+            <span></span>
+        </div>
+    </div>
+</div>
 </body>
 
 <!--JQuery and Bootstrap 5.0-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 <script th:src="@{/js/bootstrap.bundle.js}"></script>
 <script th:src="@{/js/info-popup.js}"></script>
 <script th:src="@{/js/check-popup.js}"></script>
 <script th:src="@{/js/scrolling.js}"></script>
+<script th:src="@{/js/export-pdf.js}"></script>
+<script th:src="@{/js/session.js}"></script>
 
+<script>
+    function showSelect(inputName) {
+        const inputArray = document.getElementsByName(inputName)
+        inputArray.forEach((radio) => radio.nextElementSibling.nextElementSibling.hidden = !radio.checked)
+    }
+</script>
 <script>
     function resetSelections() {
         const radioButtons = document.querySelectorAll("input[type=radio]:checked");
-        radioButtons.forEach((radioButton) => radioButton.checked = false);
+        radioButtons.forEach((radioButton) => {
+            radioButton.checked = false
+            if (radioButton.name === 'ram' || radioButton.name === 'ssd' || radioButton.name === 'hdd')
+                radioButton.nextElementSibling.nextElementSibling.hidden = true
+        });
     }
 </script>
-
 </html>
