@@ -11,11 +11,12 @@
     <link th:href="@{/css/right-navbar.css}" rel="stylesheet">
     <link th:href="@{/css/radio-button.css}" rel="stylesheet">
     <link th:href="@{/css/main-content.css}" rel="stylesheet">
+    <link th:href="@{/css/scroll.css}" rel="stylesheet">
 
 </head>
 <body>
 <nav class="my-navbar">
-    <ul class="my-navbar-nav">
+    <ul class="my-navbar-nav" style="font-size: 1.15rem">
         <li class="my-nav-item">
             <a href="#cpu" class="my-nav-link">
                 <img class="filter-white transition" alt="#" src="/svg/cpu.svg"/>
@@ -1160,7 +1161,7 @@
     </div>
 
     <!-- Info Modal -->
-    <div class="modal fade" id="info-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade transition" id="info-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div id="modal_body" class="modal-body d-flex flex-column">
@@ -1170,8 +1171,8 @@
     </div>
 
     <!-- Check Modal -->
-    <div class="modal fade" id="check-modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 650px">
+    <div class="modal fade transition" id="check-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 700px">
             <div class="modal-content">
                 <div class="modal-body d-flex flex-column">
                     <button type="button" class="btn-close align-self-end" data-bs-dismiss="modal"
@@ -1183,77 +1184,77 @@
                             <span></span>
                         </div>
                     </div>
-                    <table class="w-100">
+                    <table class="w-100" style="font-size: 1.15rem">
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/cpu.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/cpu.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">CPU</span>
                             </td>
-                            <td>Intel Core i5-9400</td>
+                            <td class="w-100 ps-4">Intel Core i5-9400</td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/gpu.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/gpu.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">GPU</span>
                             </td>
-                            <td>Nvidia RTX 3060</td>
+                            <td class="w-100 ps-4">Nvidia RTX 3060</td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/motherboard.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/motherboard.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">Motherboard</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/ram.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/ram.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">RAM</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/power.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/power.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">Power</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/cooler.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/cooler.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">Cooler</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/ssd.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/ssd.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">SSD</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/hdd.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/hdd.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">HDD</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                         <tr class="border-bottom">
                             <td class="d-flex align-items-center my-2">
-                                <img src="/svg/case.svg" alt="#" style="width: 2.5rem;"/>
+                                <img src="/svg/case.svg" alt="#" style="width: 3.6rem;"/>
                                 <span class="ms-3">Case</span>
                             </td>
-                            <td></td>
+                            <td class="w-100 ps-4"></td>
                             <td><img width="30" src="/svg/cancel.svg" alt="#" class="filter-red"/></td>
                         </tr>
                     </table>

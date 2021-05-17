@@ -710,7 +710,7 @@ function popupCase(manufacturer, name, size, dimensions, weight, maxCoolerHeight
 //region Styles
 function createDivRow() {
     const divRow = document.createElement('div')
-    divRow.classList.add('row')
+    divRow.classList.add('row', 'border-bottom', 'py-2')
     return divRow
 }
 
@@ -748,7 +748,7 @@ function createTitle(manufacturer, name) {
 
 function createDiv() {
     const div = document.createElement('div')
-    div.classList.add('ms-3', 'mb-3')
+    div.classList.add('mx-3', 'mb-3')
     return div
 }
 

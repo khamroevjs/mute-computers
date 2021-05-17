@@ -13,19 +13,6 @@ body {
     padding: 0;
 }
 
-body::-webkit-scrollbar {
-    width: 0.5rem;
-}
-
-body::-webkit-scrollbar-track {
-    background: #1e1e24;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: #6649b8;
-    border-radius: 0.25rem;
-}
-
 .my-navbar {
     position: fixed;
     background-color: var(--bg-primary);
@@ -49,15 +36,6 @@ body::-webkit-scrollbar-thumb {
 
 .my-navbar-nav::-webkit-scrollbar {
     width: 0.4rem;
-}
-
-.my-navbar-nav::-webkit-scrollbar-track {
-    background: #1e1e24;
-}
-
-.my-navbar-nav::-webkit-scrollbar-thumb {
-    background: #6649b8;
-    border-radius: 0.25rem;
 }
 
 .my-nav-item {
