@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
-@RequestMapping("/main")
 class MainController @Autowired constructor(
     private val cpuRepository: CPURepository,
     private val gpuRepository: GPURepository,
@@ -26,7 +25,7 @@ class MainController @Autowired constructor(
     private val caseRepository: CaseRepository
 ) {
 
-    @GetMapping("/info")
+    @GetMapping
     fun info(model: Model): String {
 
         addCpu(model)
