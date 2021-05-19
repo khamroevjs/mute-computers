@@ -27,7 +27,7 @@ function exportPdf() {
     const today = new Date()
     const date = String(today.getDate()).padStart(2, '0') + '.' + String(today.getMonth() + 1).padStart(2, '0') + '.' + today.getFullYear()
     const time = today.getHours() + ':' + today.getMinutes()
-    document.getElementById('date').lastElementChild.innerHTML = date + ' ' + time
+    document.getElementById('date').lastElementChild.innerHTML = date + ' ' + time.padStart(2, '0')
 
     // Exporting PDF
     const opt = {
