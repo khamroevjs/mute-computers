@@ -1,2 +1,2 @@
 # MuteComputers
-Web-app: https://mute-computers.herokuapp.com/
+Go to: https://mute-computers.herokuapp.com/
