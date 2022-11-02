@@ -1,16 +1,11 @@
 package com.mutecomputers.controller
 
-import com.mutecomputers.model.CPU
-import com.mutecomputers.model.GPU
 import com.mutecomputers.model.Motherboard
 import com.mutecomputers.repository.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 class MainController @Autowired constructor(
