@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: 'postgres:15-alpine'
+    container_name: 'postgres'
+    ports:
+      - '5432:5432'
+    secrets:
+      - 'db-name'
+      - 'db-user'
+      - 'db-password'
+    environment:
+      - POSTGRES_DB_FILE: '/run/secrets/db-name'
+      - POSTGRES_USER_FILE: '/run/secrets/db-user'
+      - POSTGRES_PASSWORD_FILE: '/run/secrets/db-password'
+
+  app:
+    build: ./
+    container_name: 'spring-app'
+    ports:
+      - '8080:8080'
+    environment:
+      - DATABASE_URL: '${DB_URL:-jdbc:postgresql://localhost:5432/mute-computers}'
+      - DATABASE_USERNAME: '${DB_USER:-postgres}'
+      - DATABASE_PASSWORD: '${DB_PASSWORD:-1234}'
