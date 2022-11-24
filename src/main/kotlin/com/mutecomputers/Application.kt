@@ -1,5 +1,6 @@
 package com.mutecomputers
 
+import com.mutecomputers.utils.FilePropertySource
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
@@ -7,5 +8,10 @@ import org.springframework.boot.runApplication
 class Application
 
 fun main(args: Array<String>) {
-    runApplication<Application>(*args)
+
+    runApplication<Application>(*args) {
+        addInitializers({
+            it.environment.propertySources.addLast(FilePropertySource())
+        })
+    }
 }

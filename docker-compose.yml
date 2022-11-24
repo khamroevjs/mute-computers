@@ -9,16 +9,23 @@ services:
       - 'db-user'
       - 'db-password'
     environment:
-      - POSTGRES_DB_FILE: '/run/secrets/db-name'
-      - POSTGRES_USER_FILE: '/run/secrets/db-user'
-      - POSTGRES_PASSWORD_FILE: '/run/secrets/db-password'
+      - 'POSTGRES_DB_FILE=/run/secrets/db-name'
+      - 'POSTGRES_USER_FILE=/run/secrets/db-user'
+      - 'POSTGRES_PASSWORD_FILE=/run/secrets/db-password'
 
   app:
     build: ./
     container_name: 'spring-app'
     ports:
       - '8080:8080'
+    secrets:
+      - 'db-url'
+      - 'db-user'
+      - 'db-password'
     environment:
-      - DATABASE_URL: '${DB_URL:-jdbc:postgresql://localhost:5432/mute-computers}'
-      - DATABASE_USERNAME: '${DB_USER:-postgres}'
-      - DATABASE_PASSWORD: '${DB_PASSWORD:-1234}'
+      - 'DB_URL_FILE=/run/secrets/db-url'
+      - 'DB_USER_FILE=/run/secrets/db-user'
+      - 'DB_PASSWORD_FILE=/run/secrets/db-password'
+#      - DATABASE_URL: '${DB_URL:-jdbc:postgresql://localhost:5432/mute-computers}'
+#      - DATABASE_USERNAME: '${DB_USER:-postgres}'
+#      - DATABASE_PASSWORD: '${DB_PASSWORD:-1234}'
