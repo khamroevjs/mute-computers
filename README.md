@@ -1,4 +1,2 @@
 # MuteComputers
-Go to: https://mute-computers.herokuapp.com/
-
-https://mute-computers.herokuapp.com/swagger-ui/index.html
+Go to: https://8080-5ef46e42ab1a4817ac0330d08854c0b9.patr.cloud/
