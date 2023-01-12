@@ -1,2 +1,2 @@
 # MuteComputers
-Go to: https://8080-5ef46e42ab1a4817ac0330d08854c0b9.patr.cloud/
+Go to: https://8080-248ff8a8d7bc4cbc80ffffb9d60b2ea2.patr.cloud/
