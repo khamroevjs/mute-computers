@@ -1,3 +1,24 @@
+version: '3.8'
+#secrets:
+#  db-name:
+#    file: db-name.txt
+#  db-user:
+#    file: db-user.txt
+#  db-password:
+#    file: db-password.txt
+#  db-url:
+#    file: db-url.txt
+
+secrets:
+  db-name:
+    external: true
+  db-user:
+    external: true
+  db-password:
+    external: true
+  db-url:
+    external: true
+
 services:
   postgres:
     image: 'postgres:15-alpine'
@@ -9,13 +30,16 @@ services:
       - 'db-user'
       - 'db-password'
     environment:
+#      - 'POSTGRES_DB=my-database'
+#      - 'POSTGRES_USER=khamroev'
+#      - 'POSTGRES_PASSWORD=1234'
       - 'POSTGRES_DB_FILE=/run/secrets/db-name'
       - 'POSTGRES_USER_FILE=/run/secrets/db-user'
       - 'POSTGRES_PASSWORD_FILE=/run/secrets/db-password'
 
   app:
     build: ./
-    container_name: 'spring-app'
+#    container_name: 'spring-app'
     ports:
       - '8080:8080'
     secrets:
@@ -26,6 +50,3 @@ services:
       - 'DB_URL_FILE=/run/secrets/db-url'
       - 'DB_USER_FILE=/run/secrets/db-user'
       - 'DB_PASSWORD_FILE=/run/secrets/db-password'
-#      - DATABASE_URL: '${DB_URL:-jdbc:postgresql://localhost:5432/mute-computers}'
-#      - DATABASE_USERNAME: '${DB_USER:-postgres}'
-#      - DATABASE_PASSWORD: '${DB_PASSWORD:-1234}'
