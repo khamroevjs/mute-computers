@@ -24,4 +24,4 @@ COPY --from=builder /custom-jre $JAVA_HOME
 COPY --from=builder /project/build/libs/mute-computers-1.0.0.jar .
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "mute-computers-1.0.0.jar"]
+CMD ["java", "-jar", "mute-computers-1.0.0.jar"]
